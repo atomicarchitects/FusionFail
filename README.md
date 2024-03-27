@@ -31,4 +31,4 @@ nsys profile -w true -t cuda,nvtx,osrt,cudnn,cublas -s cpu -o nequip_profile -f 
 
 ## TODO
 
-- [] Add a MLP-equivalent to show what non-CUDAGraph fusion should look like
+- [ ] Add a MLP-equivalent to show what non-CUDAGraph fusion should look like
