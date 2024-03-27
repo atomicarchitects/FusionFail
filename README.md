@@ -1,6 +1,6 @@
 # Fusion Fail
 
-Profile showing the break down of kernel fusion for one layer of NequIP. Thanks @ameya98 for the simplified version of NequIP.
+Profile showing CUDAGraph-based kernel fusion for 3 layers of NequIP. Thanks @ameya98 for the simplified version of NequIP.
 
 ![nequip_profile](profiles/profile_train_step_nequip_3_layers.png)
 
