@@ -1,13 +1,10 @@
 # Fusion Fail
 
-Profile showing CUDAGraph-based kernel fusion for 3 layers of NequIP. Thanks @ameya98 for the simplified version of NequIP.
-
 ![nequip_profile](profiles/profile_train_step_nequip_3_layers.png)
-
 
 ## What are we looking at ?
 
-The function `train_step` corresponds to a forward and backward pass through a 3 layered NequIP model implemented using e3nn-jax acting on a simple Tetris dataset.
+The function `train_step` corresponds to a forward and backward pass through a 3 layered NequIP model implemented using e3nn-jax acting on a simple Tetris dataset. Thanks @ameya98 for the code !
 
 ## What's happening ?
 
