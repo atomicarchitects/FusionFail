@@ -1,6 +1,6 @@
 # Fusion Fail
 
-![nequip_profile](images/profile_nequip_3_layer.png)
+![nequip_profile](images/profile_nequip_3_layer.jpg)
 
 ## What are we looking at ?
 
