@@ -1,6 +1,6 @@
 # Fusion Fail
 
-![nequip_profile](profiles/profile_train_step_nequip_3_layers.png)
+![nequip_profile](images/profile_nequip_3_layer.png)
 
 ## What are we looking at ?
 
@@ -10,9 +10,13 @@ The function `train_step` corresponds to a forward and backward pass through a 3
 
 Here's a brief summary of the under the hood story:
 
-- [XLA](https://github.com/openxla/xla) is unable to pattern match or generate a small subset of fused kernels for the compuatation. Instead its left with around ~300 kernels that it needs to execute at runtime (small chunks below `Thunk:#hlo_op` in the `TSL` row)
+- [XLA](https://github.com/openxla/xla) is unable to pattern match or generate a small subset of fused kernels for the compuatation (See [arxiv:2301.13062](https://arxiv.org/abs/2301.13062) to understand how XLA works). Instead its left with around ~300 kernels that it needs to execute at runtime (small chunks below `Thunk:#hlo_op` in the `TSL` row)
 
 - This makes the compiler fall back to [CUDAGraphs](https://developer.nvidia.com/blog/cuda-graphs/) which batches the execution of these kernels. However, the execution graph needs to be updated with new inputs at runtime (~30% runtime overhead before `Graph 7` is launched on the GPU). This overhead (notice the `CUDA API` row) increases with the size of the computation graph.
+
+## What's the alternative ?
+
+Ideally, the compiler/human should be giving us one forward and one backward fused kernel for our computation (See [FlashAttention](https://arxiv.org/abs/2205.14135)).
 
 ### Packages
 
