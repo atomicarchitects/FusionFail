@@ -27,7 +27,7 @@ pip install requirements.txt
 To reproduce the profile shown above install NVIDIA Nsight Systems and run
 
 ```bash
-nsys profile -w true -t cuda,nvtx,osrt,cudnn,cublas -s cpu -o nequip_profile -f true --cudabacktrace=true -x true python train.py
+nsys profile --capture-range=cudaProfilerApi --cuda-graph-trace=node --capture-range-end=stop -o nequip_profile_disable_cudagraph -f true python train.py
 ```
 
 ## TODO
