@@ -95,14 +95,19 @@ def train(steps=200):
     wall = time.perf_counter()
     print("Training...", flush=True)
     with tqdm(range(steps)) as bar:
+        from ctypes import cdll
+        libcudart = cdll.LoadLibrary('libcudart.so')
         for step in bar:
+            if step == 10: libcudart.cudaProfilerStart()
             params, opt_state, accuracy, preds = train_step(params, opt_state, graphs)
             bar.set_postfix(accuracy=f"{100 * accuracy:.2f}%")    
             if accuracy == 1.0:
                 break
+        libcudart.cudaProfilerStop()
+
+    print(f"Training took {time.perf_counter() - wall:.1f}s")
     print(f"Final accuracy = {100 * accuracy:.2f}%")
     print("Final prediction:", preds)
-
     # Check equivariance.
     print("Checking equivariance...")
     for key in range(10):
@@ -121,7 +126,6 @@ def train(steps=200):
         assert jnp.allclose(logits, rotated_logits, atol=1e-4), "Model is not equivariant."
 
     print("Model is equivariant.")
-
 
 if __name__ == "__main__":
     train()
