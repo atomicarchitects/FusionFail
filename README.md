@@ -24,7 +24,7 @@ Ideally, the compiler/human should be giving us one forward and one backward fus
 pip install requirements.txt
 ```
 
-To reproduce the profile shown above install NVIDIA Nsight Systems and run
+To reproduce the profile shown above install NVIDIA Nsight Systems and run (borrowed from ([JAX-Toolbox](https://github.com/NVIDIA/JAX-Toolbox/blob/main/docs/profiling.md))
 
 ```bash
 nsys profile --capture-range=cudaProfilerApi --cuda-graph-trace=node --capture-range-end=stop -o nequip_profile_disable_cudagraph -f true python train.py
