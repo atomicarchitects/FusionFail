@@ -33,3 +33,4 @@ nsys profile --capture-range=cudaProfilerApi --cuda-graph-trace=node --capture-r
 ## TODO
 
 - [ ] Add a MLP-equivalent to show what non-CUDAGraph fusion should look like
+- [ ] Add profiles for Allegro-JAX and MACE-JAX to confirm whether they have a similar story or not.
