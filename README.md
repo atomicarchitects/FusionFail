@@ -33,5 +33,6 @@ nsys profile --capture-range=cudaProfilerApi --cuda-graph-trace=node --capture-r
 ## TODO
 
 - [ ] Add a MLP-equivalent to show what non-CUDAGraph fusion should look like
-- [ ] Add `TensorProduct`, `TensorProductLinear` and `TensorProductLinearGate`
-- [ ] Add profiles for Allegro-JAX and MACE-JAX
+- More profiling:
+    - [ ] Add `TensorProduct`, `TensorProductLinear` and `TensorProductLinearGate`
+    - [ ] Allegro-JAX and MACE-JAX
